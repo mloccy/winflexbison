@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5.0 FATAL_ERROR)
 
-set(PROJECT_NAME win_flex)
+set(PROJECT_NAME flex)
 
 project(${PROJECT_NAME} C)
 
@@ -13,7 +13,7 @@ list(REMOVE_ITEM SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/libmain.c")
 list(REMOVE_ITEM SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/libyywrap.c")
 
 # Add executable to build.
-add_executable(${PROJECT_NAME} 
+add_executable(${PROJECT_NAME}
    ${SOURCE_FILES}
 )
 
@@ -22,10 +22,10 @@ target_compile_definitions(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PRIVATE "src")
 
-target_link_libraries(${PROJECT_NAME} winflexbison_common kernel32.lib user32.lib)
+target_link_libraries(${PROJECT_NAME} PRIVATE winflexbison_common)
 
 # libfl
-add_library(fl STATIC 
+add_library(fl STATIC
     "${CMAKE_CURRENT_SOURCE_DIR}/src/libmain.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/libyywrap.c")
 
