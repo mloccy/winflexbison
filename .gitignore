@@ -217,3 +217,7 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 .cache/
+
+bison/src/config.h
+
+**/.vscode/*
