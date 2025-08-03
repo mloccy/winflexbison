@@ -4,6 +4,11 @@ set(PROJECT_NAME bison)
 
 project(${PROJECT_NAME} C)
 
+set(BISON_DATA_PATH "../${BISON_DATA_DESTINATION}")
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/config.h.in"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/config.h"
+    @ONLY)
 file(GLOB SOURCE_FILES
     "src/*.c"
     "src/*.h"

@@ -49,6 +49,7 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif ()
 
 
+set(BISON_DATA_DESTINATION "share/bison")
 
 add_subdirectory(common)
 add_subdirectory(flex)
@@ -66,7 +67,7 @@ install(TARGETS flex bison
 )
 install(EXPORT FlexTargets NAMESPACE flex:: DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/flex")
 install(FILES "flex/src/FlexLexer.h" DESTINATION "include")
-install(DIRECTORY "bison/data/" DESTINATION "share/bison")
+install(DIRECTORY "bison/data/" DESTINATION ${BISON_DATA_DESTINATION})
 
 write_basic_package_version_file(
   "${CMAKE_CURRENT_BINARY_DIR}/FlexConfigVersion.cmake"
